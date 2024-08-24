@@ -6,7 +6,7 @@ import { envs } from '../config';
 export class GoogleService {
   private static instance: GoogleService;
   private readonly oAuth2Client: OAuth2Client;
-  private readonly scopes = ['https://www.googleapis.com/auth/calendar'];
+  private readonly scopes: string[] = ['https://www.googleapis.com/auth/calendar'];
 
   private constructor() {
     this.oAuth2Client = new google.auth.OAuth2(envs.CLIENT_ID, envs.CLIENT_SECRET, envs.REDIRECT_URL);
@@ -20,7 +20,7 @@ export class GoogleService {
     return GoogleService.instance;
   }
 
-  async authenticate() {
+  async auth() {
     return this.oAuth2Client.generateAuthUrl({
       access_type: 'offline',
       scope: this.scopes,

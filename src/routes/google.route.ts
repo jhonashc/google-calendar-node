@@ -10,7 +10,7 @@ export class GoogleRoutes {
     const googleService = GoogleService.getInstance();
     const googleController = new GoogleController(googleService);
 
-    router.get('/auth', googleController.authenticate);
+    router.get('/auth', googleController.auth);
     router.get('/redirect', googleController.redirect);
 
     return router;

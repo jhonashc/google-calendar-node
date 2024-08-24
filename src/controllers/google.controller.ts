@@ -5,9 +5,9 @@ import { GoogleService } from '../services';
 export class GoogleController {
   constructor(private readonly googleService: GoogleService) {}
 
-  authenticate = (req: Request, res: Response, next: NextFunction) => {
+  auth = (req: Request, res: Response, next: NextFunction) => {
     this.googleService
-      .authenticate()
+      .auth()
       .then((redirectUrl) => res.redirect(redirectUrl))
       .catch((error) => next(error));
   };
