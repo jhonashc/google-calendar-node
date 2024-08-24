@@ -10,7 +10,6 @@ export const createEventSchema = z.object({
       .min(1, {
         message: 'The field calendarId cannot be empty',
       }),
-
     summary: z
       .string({
         required_error: 'The field summary is required',
@@ -19,13 +18,11 @@ export const createEventSchema = z.object({
       .min(1, {
         message: 'The field summary cannot be empty',
       }),
-
     description: z
       .string({
         invalid_type_error: 'The field description must be a string',
       })
       .optional(),
-
     startDateTime: z
       .string({
         required_error: 'The field start date and time is required',
@@ -34,7 +31,6 @@ export const createEventSchema = z.object({
       .min(1, {
         message: 'The field start date and time cannot be empty',
       }),
-
     endDateTime: z
       .string({
         required_error: 'The field end date and time is required',
@@ -43,7 +39,6 @@ export const createEventSchema = z.object({
       .min(1, {
         message: 'The field end date and time cannot be empty',
       }),
-
     attendees: z
       .array(
         z.object({
